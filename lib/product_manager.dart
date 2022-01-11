@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import './products.dart';
 
 class ProductManager extends StatefulWidget {
+  const ProductManager({Key? key}) : super(key: key);
+
   @override
   State<ProductManager> createState() => _ProductManagerState();
 }

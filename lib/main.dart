@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:easy_list/product_manager.dart';
 import 'package:flutter/material.dart';
 
@@ -22,7 +20,7 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           title: const Text('EasyList'),
         ),
-        body:ProductManager()
+        body:const ProductManager()
       ),
     );
   }
