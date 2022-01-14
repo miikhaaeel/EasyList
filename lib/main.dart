@@ -20,7 +20,7 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           title: const Text('EasyList'),
         ),
-        body:const ProductManager()
+        body:const ProductManager(startingProduct: 'Food Tester',)
       ),
     );
   }

@@ -2,13 +2,21 @@ import 'package:flutter/material.dart';
 import './products.dart';
 
 class ProductManager extends StatefulWidget {
-  const ProductManager({Key? key}) : super(key: key);
+  final String startingProduct;
+  const ProductManager({Key? key, required this.startingProduct}) : super(key: key);
 
   @override
   State<ProductManager> createState() => _ProductManagerState();
 }
 
 class _ProductManagerState extends State<ProductManager> {
+  List<String> _products = [];
+  @override
+  void initState() {
+    _products.add(widget.startingProduct);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     List<String> _product = ['Food Tester'];
