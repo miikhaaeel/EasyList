@@ -3,14 +3,15 @@ import './products.dart';
 
 class ProductManager extends StatefulWidget {
   final String startingProduct;
-  const ProductManager({Key? key, required this.startingProduct}) : super(key: key);
+  const ProductManager({Key? key, required this.startingProduct})
+      : super(key: key);
 
   @override
   State<ProductManager> createState() => _ProductManagerState();
 }
 
 class _ProductManagerState extends State<ProductManager> {
-  List<String> _products = [];
+  final List<String> _products = [];
   @override
   void initState() {
     _products.add(widget.startingProduct);
@@ -19,7 +20,7 @@ class _ProductManagerState extends State<ProductManager> {
 
   @override
   Widget build(BuildContext context) {
-    List<String> _product = ['Food Tester'];
+    // List<String> _product = ['Food Tester'];
     return Column(
       children: [
         Container(
@@ -27,13 +28,13 @@ class _ProductManagerState extends State<ProductManager> {
           child: ElevatedButton(
             onPressed: () {
               setState(() {
-                _product.add('Advanced Tester');
+                _products.add('Advanced Tester');
               });
             },
             child: const Text('Add Product'),
           ),
         ),
-        Product(_product),
+        Product(_products),
       ],
     );
   }
