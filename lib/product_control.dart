@@ -8,7 +8,7 @@ class ProductControl extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: () {
-        addProduct!('sweets');
+        addProduct!('Sweets');
       },
       child: const Text('Add Product'),
     );
