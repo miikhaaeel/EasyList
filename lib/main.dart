@@ -1,4 +1,5 @@
 import 'package:easy_list/product_manager.dart';
+import 'package:easy_list/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,13 +16,8 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('EasyList'),
-        ),
-        body:const ProductManager(startingProduct: 'tester',)
-      ),
+    return const MaterialApp(
+      home: HomeScreen(),
     );
   }
 }

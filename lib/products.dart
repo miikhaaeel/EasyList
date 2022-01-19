@@ -1,15 +1,40 @@
+import 'package:easy_list/screens/product_screen.dart';
 import 'package:flutter/material.dart';
 
 class Product extends StatelessWidget {
-  final List<String> product;
+  final List<Map<String, String>> product;
   const Product(this.product, {Key? key}) : super(key: key);
 
   Widget _buildProductItem(BuildContext context, int index) {
     return Card(
       child: Column(
         children: [
-          Image.asset('assets/food.jpg'),
-          Text(product[index]),
+          Image.asset(product[index]['imageUrl']!),
+          Text(product[index]['title']!),
+          ButtonBar(
+            alignment: MainAxisAlignment.center,
+            children: [
+              TextButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ProductScreen(
+                        title: product[index]['title'],
+                        imageUrl: product[index]['imageUrl'],
+                      ),
+                    ),
+                  );
+                },
+                child: const Text(
+                  'Details',
+                  style: TextStyle(
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+            ],
+          )
         ],
       ),
     );
