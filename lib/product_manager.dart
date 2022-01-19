@@ -15,7 +15,10 @@ class _ProductManagerState extends State<ProductManager> {
   final List<Map<String, String>> _products = [];
   @override
   void initState() {
-    _products.add(widget.startingProduct!);
+    if (widget.startingProduct != null) {
+      _products.add(widget.startingProduct!);
+    }
+
     super.initState();
   }
 

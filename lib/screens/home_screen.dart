@@ -12,8 +12,8 @@ class HomeScreen extends StatelessWidget {
         title: const Text('EasyList'),
       ),
       body: const ProductManager(
-        startingProduct: {'title': 'Chocolate', 'imageUrl': 'assets/food.jpg'},
-      ),
+          // startingProduct: {'title': 'Chocolatee', 'imageUrl': 'assets/food.jpg'},
+          ),
     );
   }
 }
