@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 
 class Product extends StatelessWidget {
   final List<Map<String, String>> product;
-  const Product(this.product, {Key? key}) : super(key: key);
+  final Function(int) deleteProduct;
+  const Product(this.product, {Key? key, required this.deleteProduct}) : super(key: key);
 
   Widget _buildProductItem(BuildContext context, int index) {
     return Card(
@@ -16,7 +17,7 @@ class Product extends StatelessWidget {
             children: [
               TextButton(
                 onPressed: () {
-                  Navigator.push(
+                  Navigator.push<bool>(
                     context,
                     MaterialPageRoute(
                       builder: (context) => ProductScreen(
@@ -24,7 +25,11 @@ class Product extends StatelessWidget {
                         imageUrl: product[index]['imageUrl'],
                       ),
                     ),
-                  );
+                  ).then((value) {
+                    if (value == true) {
+                     deleteProduct(index);
+                    }
+                  });
                 },
                 child: const Text(
                   'Details',

@@ -1,4 +1,3 @@
-import 'package:easy_list/product_manager.dart';
 import 'package:easy_list/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 

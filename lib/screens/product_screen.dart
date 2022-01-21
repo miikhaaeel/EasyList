@@ -24,9 +24,9 @@ class ProductScreen extends StatelessWidget {
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(primary: Colors.deepOrange),
                 onPressed: () {
-                  Navigator.pop(context);
+                  Navigator.pop(context, true);
                 },
-                child: Text('Back'),
+                child: const Text('Delete'),
               ),
             ),
           ],
