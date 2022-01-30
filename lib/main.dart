@@ -1,5 +1,6 @@
 import 'package:easy_list/screens/auth_screen.dart';
 import 'package:easy_list/screens/home_screen.dart';
+import 'package:easy_list/screens/product_admin.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,8 +17,14 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: AuthScreen(),
+    return MaterialApp(
+    //  home: AuthScreen(),
+      routes: {
+        '/':(BuildContext context)=>const HomeScreen(),
+        '/auth':(BuildContext context)=>const AuthScreen(),
+        '/admin': (BuildContext context) => const ProductAdmin(),
+
+      },
     );
   }
 }

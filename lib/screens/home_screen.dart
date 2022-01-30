@@ -19,12 +19,7 @@ class HomeScreen extends StatelessWidget {
             ListTile(
               title: const Text('Manage Products'),
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (BuildContext context) => const ProductAdmin(),
-                  ),
-                );
+                Navigator.pushReplacementNamed(context, '/admin');
               },
             )
           ],
