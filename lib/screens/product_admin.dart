@@ -1,40 +1,59 @@
+import 'package:easy_list/screens/product_create.dart';
+import 'package:easy_list/screens/product_list.dart';
 import 'package:flutter/material.dart';
 
-import 'product_screen.dart';
+import 'home_screen.dart';
 
 class ProductAdmin extends StatelessWidget {
   const ProductAdmin({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      drawer: Drawer(
-        child: Column(
-          children: [
-            AppBar(
-              automaticallyImplyLeading: false,
-              title: const Text('Choose'),
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+          drawer: Drawer(
+            child: Column(
+              children: [
+                AppBar(
+                  automaticallyImplyLeading: false,
+                  title: const Text('Choose'),
+                ),
+                ListTile(
+                  title: const Text('All Products'),
+                  onTap: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (BuildContext context) => const HomeScreen(),
+                      ),
+                    );
+                  },
+                )
+              ],
             ),
-            ListTile(
-              title: const Text('All Products'),
-              onTap: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (BuildContext context) => const ProductScreen(),
+          ),
+          appBar: AppBar(
+            title: const Text('Manage Product'),
+            bottom: const TabBar(
+              tabs: [
+                Tab(
+                  text: 'Create',
+                  icon: Icon(
+                    Icons.create,
                   ),
-                );
-              },
-            )
-          ],
-        ),
-      ),
-      appBar: AppBar(
-        title: const Text('Manage Product'),
-      ),
-      body: const Center(
-        child: Text('Manage your products'),
-      ),
+                ),
+                Tab(
+                  text: 'My Product',
+                  icon: Icon(Icons.list),
+                ),
+              ],
+            ),
+          ),
+          body: TabBarView(children: [
+            ProductCreateScreen(),
+            ProductListScreen()
+          ])),
     );
   }
 }
