@@ -36,16 +36,18 @@ class _ProductManagerState extends State<ProductManager> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          margin: const EdgeInsets.all(8),
-          child: ProductControl(addProduct: _addProduct),
-        ),
-        Expanded(
-          child: Product(_products, deleteProduct: _deleteProduct),
-        ),
-      ],
+    return SafeArea(
+      child: Column(
+        children: [
+          Container(
+            margin: const EdgeInsets.all(8),
+            child: ProductControl(addProduct: _addProduct),
+          ),
+          Expanded(
+            child: Product(_products, deleteProduct: _deleteProduct),
+          ),
+        ],
+      ),
     );
   }
 }

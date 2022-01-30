@@ -1,10 +1,9 @@
-import 'package:easy_list/screens/product_admin.dart';
 import 'package:flutter/material.dart';
 
-import '../product_manager.dart';
+import 'product_screen.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class ProductAdmin extends StatelessWidget {
+  const ProductAdmin({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,12 +16,12 @@ class HomeScreen extends StatelessWidget {
               title: const Text('Choose'),
             ),
             ListTile(
-              title: const Text('Manage Products'),
+              title: const Text('All Products'),
               onTap: () {
-                Navigator.push(
+                Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                    builder: (BuildContext context) => const ProductAdmin(),
+                    builder: (BuildContext context) => const ProductScreen(),
                   ),
                 );
               },
@@ -31,11 +30,11 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
       appBar: AppBar(
-        title: const Text('EasyList'),
+        title: const Text('Manage Product'),
       ),
-      body: const ProductManager(
-          // startingProduct: {'title': 'Chocolatee', 'imageUrl': 'assets/food.jpg'},
-          ),
+      body: const Center(
+        child: Text('Manage your products'),
+      ),
     );
   }
 }
