@@ -1,10 +1,14 @@
-import 'package:easy_list/screens/product_admin.dart';
 import 'package:flutter/material.dart';
 
 import '../product_manager.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  final List<Map<String, String>>? products;
+  final Function? addProduct;
+  final Function? deleteProduct;
+  const HomeScreen(
+      {Key? key, this.products, this.addProduct, this.deleteProduct})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,9 +32,11 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('EasyList'),
       ),
-      body: const ProductManager(
-          // startingProduct: {'title': 'Chocolatee', 'imageUrl': 'assets/food.jpg'},
-          ),
+      body: ProductManager(
+        addProduct: addProduct,
+        deleteProduct: deleteProduct,
+        products: products,
+      ),
     );
   }
 }
