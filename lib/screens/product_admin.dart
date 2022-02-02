@@ -12,48 +12,48 @@ class ProductAdmin extends StatelessWidget {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
-          drawer: Drawer(
-            child: Column(
-              children: [
-                AppBar(
-                  automaticallyImplyLeading: false,
-                  title: const Text('Choose'),
-                ),
-                ListTile(
-                  title: const Text('All Products'),
-                  onTap: () {
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                        builder: (BuildContext context) => const HomeScreen(),
-                      ),
-                    );
-                  },
-                )
-              ],
-            ),
+        drawer: Drawer(
+          child: Column(
+            children: [
+              AppBar(
+                automaticallyImplyLeading: false,
+                title: const Text('Choose'),
+              ),
+              ListTile(
+                title: const Text('All Products'),
+                onTap: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (BuildContext context) => const HomeScreen(),
+                    ),
+                  );
+                },
+              )
+            ],
           ),
-          appBar: AppBar(
-            title: const Text('Manage Product'),
-            bottom: const TabBar(
-              tabs: [
-                Tab(
-                  text: 'Create',
-                  icon: Icon(
-                    Icons.create,
-                  ),
+        ),
+        appBar: AppBar(
+          title: const Text('Manage Product'),
+          bottom: const TabBar(
+            tabs: [
+              Tab(
+                text: 'Create',
+                icon: Icon(
+                  Icons.create,
                 ),
-                Tab(
-                  text: 'My Product',
-                  icon: Icon(Icons.list),
-                ),
-              ],
-            ),
+              ),
+              Tab(
+                text: 'My Product',
+                icon: Icon(Icons.list),
+              ),
+            ],
           ),
-          body: TabBarView(children: [
-            ProductCreateScreen(),
-            ProductListScreen()
-          ])),
+        ),
+        body: const TabBarView(
+          children: [ProductCreateScreen(), ProductListScreen()],
+        ),
+      ),
     );
   }
 }

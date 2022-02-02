@@ -46,15 +46,28 @@ class _MyAppState extends State<MyApp> {
       },
       onGenerateRoute: (RouteSettings settings) {
         final List<String> pathElement = settings.name!.split('/');
+        if (pathElement[0] != '') {
+          return null;
+        }
         if (pathElement[1] == 'product') {
           final index = int.parse(pathElement[2]);
-          return MaterialPageRoute(
+          return MaterialPageRoute<bool>(
             builder: (context) => ProductScreen(
               title: _product[index]['title'],
               imageUrl: _product[index]['imageUrl'],
             ),
           );
         }
+        return null;
+      },
+      onUnknownRoute: (settings) {
+        return MaterialPageRoute(
+          builder: (BuildContext context) => HomeScreen(
+            addProduct: _addProduct,
+            deleteProduct: _deleteProduct,
+            products: _product,
+          ),
+        );
       },
     );
   }

@@ -5,6 +5,21 @@ class ProductCreateScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(child: Center(child: Text('data'),),);
+    return Container(
+      child: Center(
+        child: TextButton(
+          onPressed: () {
+            showModalBottomSheet(
+                context: context,
+                builder: (context) {
+                  return const Center(
+                    child: Text('Alright'),
+                  );
+                });
+          },
+          child: Text('SAVE'),
+        ),
+      ),
+    );
   }
 }
