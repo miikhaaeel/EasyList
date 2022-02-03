@@ -10,50 +10,67 @@ class ProductCreateScreen extends StatefulWidget {
 }
 
 class _ProductCreateScreenState extends State<ProductCreateScreen> {
-  String textFieldValue = '';
-  String descriptionValue = '';
-  double? priceValue;
+  String _textFieldValue = '';
+  String _descriptionValue = '';
+  double? _priceValue;
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        TextField(
-          decoration: InputDecoration(),
-          onChanged: (value) {
-            setState(() {
-              textFieldValue = value;
-            });
-          },
-        ),
-        TextField(
-          onChanged: (value) {
-            setState(() {
-              descriptionValue = value;
-            });
-          },
-          maxLines: 5,
-        ),
-        TextField(
-          keyboardType: TextInputType.number,
-          onChanged: (value) {
-            priceValue = double.parse(value);
-          },
-          maxLines: 5,
-        ),
-        ElevatedButton(
-          onPressed: () {
-            final Map<String, dynamic> product = {
-              'title': textFieldValue,
-              'description': descriptionValue,
-              'price': priceValue,
-            };
-            widget.addProduct!(product);
-           // print(product);
-          },
-          child: Text('Save'),
-        )
-      ],
+    return Container(
+      margin: EdgeInsets.all(10),
+      child: ListView(
+        children: [
+          TextField(
+            decoration: InputDecoration(labelText: 'Product Title'),
+            onChanged: (value) {
+              setState(() {
+                _textFieldValue = value;
+              });
+            },
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          TextField(
+            decoration: InputDecoration(labelText: 'Product Description'),
+            onChanged: (value) {
+              setState(() {
+                _descriptionValue = value;
+              });
+            },
+            maxLines: 5,
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          TextField(
+            decoration: InputDecoration(labelText: 'Product Price'),
+            keyboardType: TextInputType.number,
+            onChanged: (value) {
+              _priceValue = double.parse(value);
+            },
+          ),
+          TextButton(
+            style: TextButton.styleFrom(
+              backgroundColor: Colors.purple,
+              primary: Colors.white,
+              elevation: 8,
+            ),
+            onPressed: () {
+              final Map<String, dynamic> product = {
+                'title': _textFieldValue,
+                'description': _descriptionValue,
+                'price': _priceValue,
+                'imageUrl': 'assets/food.jpg'
+              };
+              widget.addProduct!(product);
+              Navigator.pushReplacementNamed(context, '/');
+              // print(product);
+            },
+            child: Text('Save'),
+          )
+        ],
+      ),
     );
   }
 }
