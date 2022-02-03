@@ -5,7 +5,9 @@ import 'package:flutter/material.dart';
 import 'home_screen.dart';
 
 class ProductAdmin extends StatelessWidget {
-  const ProductAdmin({Key? key}) : super(key: key);
+  final Function? addProduct;
+  final Function? deletePage;
+  const ProductAdmin({Key? key, this.addProduct, this.deletePage}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,11 +24,9 @@ class ProductAdmin extends StatelessWidget {
               ListTile(
                 title: const Text('All Products'),
                 onTap: () {
-                  Navigator.pushReplacement(
+                  Navigator.pushReplacementNamed(
                     context,
-                    MaterialPageRoute(
-                      builder: (BuildContext context) => const HomeScreen(),
-                    ),
+                  '/'
                   );
                 },
               )
@@ -50,8 +50,8 @@ class ProductAdmin extends StatelessWidget {
             ],
           ),
         ),
-        body: const TabBarView(
-          children: [ProductCreateScreen(), ProductListScreen()],
+        body: TabBarView(
+          children: [ProductCreateScreen(addProduct:addProduct! ), ProductListScreen()],
         ),
       ),
     );

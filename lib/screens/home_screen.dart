@@ -3,12 +3,9 @@ import 'package:flutter/material.dart';
 import '../product_manager.dart';
 
 class HomeScreen extends StatelessWidget {
-  final List<Map<String, String>>? products;
-  final Function? addProduct;
-  final Function? deleteProduct;
-  const HomeScreen(
-      {Key? key, this.products, this.addProduct, this.deleteProduct})
-      : super(key: key);
+  final List<Map<String, dynamic>>? products;
+
+  const HomeScreen({Key? key,  this.products}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -33,8 +30,6 @@ class HomeScreen extends StatelessWidget {
         title: const Text('EasyList'),
       ),
       body: ProductManager(
-        addProduct: addProduct,
-        deleteProduct: deleteProduct,
         products: products,
       ),
     );
