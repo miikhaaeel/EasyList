@@ -64,7 +64,7 @@ class _ProductCreateScreenState extends State<ProductCreateScreen> {
                 'imageUrl': 'assets/food.jpg'
               };
               widget.addProduct!(product);
-              Navigator.pushReplacementNamed(context, '/');
+              Navigator.pushReplacementNamed(context, '/home');
               // print(product);
             },
             child: Text('Save'),

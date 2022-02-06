@@ -34,12 +34,17 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      //  home: AuthScreen(),
+      theme: ThemeData(
+        primaryColor: Colors.green,
+        brightness: Brightness.light,
+        colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Colors.amber),
+      ),
+    //  home: AuthScreen(),
       routes: {
-        '/': (BuildContext context) => HomeScreen(
+        '/home': (BuildContext context) => HomeScreen(
               products: _product,
             ),
-        '/auth': (BuildContext context) => const AuthScreen(),
+        '/': (BuildContext context) => const AuthScreen(),
         '/admin': (BuildContext context) => ProductAdmin(
               addProduct: _addProduct,
               deletePage: _deleteProduct,

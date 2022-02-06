@@ -26,7 +26,7 @@ class ProductAdmin extends StatelessWidget {
                 onTap: () {
                   Navigator.pushReplacementNamed(
                     context,
-                  '/'
+                  '/home'
                   );
                 },
               )
