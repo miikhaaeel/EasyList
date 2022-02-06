@@ -5,10 +5,8 @@ class ProductListScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   return Container(
-      child: Center(
-        child: Text('all'),
-      ),
-    );
+   return const Center(
+     child: Text('all'),
+   );
   }
 }

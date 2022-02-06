@@ -13,7 +13,7 @@ class Product extends StatelessWidget {
       child: Column(
         children: [
           Image.asset(product[index]['imageUrl']!),
-          SizedBox(
+          const SizedBox(
             height: 15,
           ),
           Row(
@@ -21,16 +21,16 @@ class Product extends StatelessWidget {
             children: [
               Text(
                 product[index]['title']!,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 15,
               ),
               Container(
-                padding: EdgeInsets.symmetric(
+                padding: const EdgeInsets.symmetric(
                   horizontal: 6,
                   vertical: 5,
                 ),
@@ -43,6 +43,22 @@ class Product extends StatelessWidget {
                 ),
               ),
             ],
+          ),
+          Container(
+            padding: EdgeInsets.symmetric(
+              horizontal: 6,
+              vertical: 2.5,
+            ),
+            child: const Text(
+              'San Francisco',
+            ),
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: Colors.blue,
+                width: 2,
+              ),
+              borderRadius: BorderRadius.circular(6),
+            ),
           ),
           ButtonBar(
             alignment: MainAxisAlignment.center,

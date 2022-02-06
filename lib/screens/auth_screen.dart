@@ -18,11 +18,11 @@ class _AuthScreenState extends State<AuthScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Login'),
+        title: const Text('Login'),
         backgroundColor: Theme.of(context).primaryColor,
       ),
       body: Container(
-        margin: EdgeInsets.all(20),
+        margin: const EdgeInsets.all(20),
         child: ListView(
           children: [
             TextField(
@@ -35,7 +35,7 @@ class _AuthScreenState extends State<AuthScreen> {
               keyboardType: TextInputType.emailAddress,
             ),
             TextField(
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Password',
               ),
               onChanged: (value) {
@@ -44,11 +44,11 @@ class _AuthScreenState extends State<AuthScreen> {
                 });
               },
             ),
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
             SwitchListTile(
-              title: Text('Accept Terms'),
+              title: const Text('Accept Terms'),
               value: _acceptTerms,
               onChanged: (bool value) {
                 setState(() {

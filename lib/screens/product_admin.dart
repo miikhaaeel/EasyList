@@ -2,8 +2,6 @@ import 'package:easy_list/screens/product_create.dart';
 import 'package:easy_list/screens/product_list.dart';
 import 'package:flutter/material.dart';
 
-import 'home_screen.dart';
-
 class ProductAdmin extends StatelessWidget {
   final Function? addProduct;
   final Function? deletePage;
@@ -51,7 +49,7 @@ class ProductAdmin extends StatelessWidget {
           ),
         ),
         body: TabBarView(
-          children: [ProductCreateScreen(addProduct:addProduct! ), ProductListScreen()],
+          children: [ProductCreateScreen(addProduct:addProduct! ), const ProductListScreen()],
         ),
       ),
     );

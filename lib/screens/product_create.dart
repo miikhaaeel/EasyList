@@ -17,22 +17,22 @@ class _ProductCreateScreenState extends State<ProductCreateScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(10),
+      margin: const EdgeInsets.all(10),
       child: ListView(
         children: [
           TextField(
-            decoration: InputDecoration(labelText: 'Product Title'),
+            decoration: const InputDecoration(labelText: 'Product Title'),
             onChanged: (value) {
               setState(() {
                 _textFieldValue = value;
               });
             },
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           TextField(
-            decoration: InputDecoration(labelText: 'Product Description'),
+            decoration: const InputDecoration(labelText: 'Product Description'),
             onChanged: (value) {
               setState(() {
                 _descriptionValue = value;
@@ -40,11 +40,11 @@ class _ProductCreateScreenState extends State<ProductCreateScreen> {
             },
             maxLines: 5,
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           TextField(
-            decoration: InputDecoration(labelText: 'Product Price'),
+            decoration: const InputDecoration(labelText: 'Product Price'),
             keyboardType: TextInputType.number,
             onChanged: (value) {
               _priceValue = double.parse(value);
@@ -67,7 +67,7 @@ class _ProductCreateScreenState extends State<ProductCreateScreen> {
               Navigator.pushReplacementNamed(context, '/home');
               // print(product);
             },
-            child: Text('Save'),
+            child: const Text('Save'),
           )
         ],
       ),
