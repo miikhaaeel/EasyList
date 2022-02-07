@@ -1,7 +1,8 @@
+import 'package:easy_list/widgets/products/price_tag.dart';
 import 'package:flutter/material.dart';
 
 class Product extends StatelessWidget {
-  final List<Map<String, dynamic>> product;
+  final List<Map<String, dynamic>>? product;
 
   const Product(
     this.product, {
@@ -12,7 +13,7 @@ class Product extends StatelessWidget {
     return Card(
       child: Column(
         children: [
-          Image.asset(product[index]['imageUrl']!),
+          Image.asset(product![index]['imageUrl']!),
           const SizedBox(
             height: 15,
           ),
@@ -20,7 +21,7 @@ class Product extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                product[index]['title']!,
+                product![index]['title']!,
                 style: const TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
@@ -29,23 +30,13 @@ class Product extends StatelessWidget {
               const SizedBox(
                 width: 15,
               ),
-              Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 6,
-                  vertical: 5,
-                ),
-                decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.secondary,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Text(
-                  '\$${product[index]['price']!.toString()}',
-                ),
-              ),
+              PriceTag(
+                price: product![index]['price'].toString(),
+              )
             ],
           ),
           Container(
-            padding: EdgeInsets.symmetric(
+            padding: const EdgeInsets.symmetric(
               horizontal: 6,
               vertical: 2.5,
             ),
@@ -63,18 +54,25 @@ class Product extends StatelessWidget {
           ButtonBar(
             alignment: MainAxisAlignment.center,
             children: [
-              TextButton(
+              IconButton(
+                color: Theme.of(context).colorScheme.secondary,
                 onPressed: () {
                   Navigator.pushNamed<bool>(
                     context,
                     '/product/' + index.toString(),
                   );
                 },
-                child: const Text(
-                  'Details',
-                  style: TextStyle(
-                    color: Colors.black,
-                  ),
+                icon: Icon(
+                  Icons.info,
+                  size: 45,
+                ),
+              ),
+              IconButton(
+                onPressed: () {},
+                icon: Icon(
+                  Icons.favorite_border,
+                  size: 45,
+                  color: Colors.red,
                 ),
               ),
             ],
@@ -86,10 +84,10 @@ class Product extends StatelessWidget {
 
   Widget _buildProductList() {
     Widget productCard;
-    if (product.isNotEmpty) {
+    if (product!.isNotEmpty) {
       productCard = ListView.builder(
         itemBuilder: _buildProductItem,
-        itemCount: product.length,
+        itemCount: product!.length,
       );
     } else {
       productCard = const Center(

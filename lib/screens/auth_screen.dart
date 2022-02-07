@@ -22,59 +22,75 @@ class _AuthScreenState extends State<AuthScreen> {
         backgroundColor: Theme.of(context).primaryColor,
       ),
       body: Container(
-        margin: const EdgeInsets.all(20),
-        child: ListView(
-          children: [
-            TextField(
-              decoration: const InputDecoration(labelText: 'Email'),
-              onChanged: (value) {
-                setState(() {
-                  _emaillValue = value;
-                });
-              },
-              keyboardType: TextInputType.emailAddress,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: const AssetImage('assets/pexel.jpg'),
+            fit: BoxFit.cover,
+            colorFilter: ColorFilter.mode(
+              Colors.black.withOpacity(0.5),
+              BlendMode.dstATop,
             ),
-            TextField(
-              decoration: const InputDecoration(
-                labelText: 'Password',
-              ),
-              onChanged: (value) {
-                setState(() {
-                  _passwordValue = value;
-                });
-              },
+          ),
+        ),
+        padding: const EdgeInsets.all(20),
+        child: Center(
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                TextField(
+                  textAlign: TextAlign.center,
+                  decoration:  InputDecoration(labelText: 'Email',filled: true,fillColor: Colors.grey.shade300),
+                  onChanged: (value) {
+                    setState(() {
+                      _emaillValue = value;
+                    });
+                  },
+                  keyboardType: TextInputType.emailAddress,
+                ),
+                SizedBox(height: 10),
+                TextField(
+                  decoration: InputDecoration(filled: true,fillColor: Colors.grey.shade300,
+                    labelText: 'Password',
+                  ),
+                  onChanged: (value) {
+                    setState(() {
+                      _passwordValue = value;
+                    });
+                  },
+                ),
+                const SizedBox(
+                  height: 50,
+                ),
+                SwitchListTile(
+                  title: const Text('Accept Terms'),
+                  value: _acceptTerms,
+                  onChanged: (bool value) {
+                    setState(() {
+                      _acceptTerms = value;
+                    });
+                  },
+                  activeColor: Colors.green,
+                ),
+                Center(
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        primary: Theme.of(context).primaryColor),
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (BuildContext context) => HomeScreen(
+                            products: product,
+                          ),
+                        ),
+                      );
+                    },
+                    child: const Text('Login'),
+                  ),
+                ),
+              ],
             ),
-            const SizedBox(
-              height: 50,
-            ),
-            SwitchListTile(
-              title: const Text('Accept Terms'),
-              value: _acceptTerms,
-              onChanged: (bool value) {
-                setState(() {
-                  _acceptTerms = value;
-                });
-              },
-              activeColor: Colors.green,
-            ),
-            Center(
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                    primary: Theme.of(context).primaryColor),
-                onPressed: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (BuildContext context) => HomeScreen(
-                        products: product,
-                      ),
-                    ),
-                  );
-                },
-                child: const Text('Login'),
-              ),
-            ),
-          ],
+          ),
         ),
       ),
     );
